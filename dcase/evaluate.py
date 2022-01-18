@@ -64,7 +64,7 @@ def run(feature_type, num_frames):
     micro_auprc, eval_df = micro_averaged_auprc(df_dict, return_df=True)
     macro_auprc, class_auprc = macro_averaged_auprc(df_dict, return_classwise=True)
     # Get index of first threshold that is at least 0.5
-    thresh_0pt5_idx = (eval_df['threshold'] >= 0.5).nonzero()[0][0]
+    thresh_0pt5_idx = (eval_df['threshold'] >= 0.5).values.nonzero()[0][0]
     print("{} level evaluation:".format(mode.capitalize()))
     print("======================")
     print(" * Micro AUPRC:           {}".format(micro_auprc))
